@@ -1,0 +1,361 @@
+/* ==========================
+   全体共通
+========================== */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Yu Gothic", "Hiragino Sans", -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
+  background: #f5f5f5;
+  line-height: 1.7;
+  color: #222;
+  overflow-x: hidden; /* 100vw 使用時の横スクロール防止 */
+}
+
+a {
+  color: inherit;
+}
+
+.container {
+  width: min(1100px, 100% - 30px);
+  margin: 0 auto;
+}
+
+/* ==========================
+   ヘッダー・ナビ
+========================== */
+.site-header {
+  background: rgba(122, 0, 25, 0.96);
+  color: #fff;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+}
+
+.header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 0; /* 高さ少し大きめ */
+  width: min(1200px, 100% - 8px);
+}
+
+.logo-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+
+.logo-img-wrap {
+  width: 56px;
+  height: 56px;
+  border-radius: 6px;
+  background: #7a0019;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo-img {
+  width: 120%;
+  height: auto;
+  object-fit: cover;
+}
+
+.logo-text {
+  font-size: 13px;
+}
+
+.logo-main {
+  font-weight: 700;
+  font-size: 15px;
+}
+
+.logo-sub {
+  font-size: 11px;
+  opacity: 0.85;
+}
+
+/* 横長ロゴ対応 */
+.long-logo {
+  width: 180px;     /* ロゴ幅（好みで調整） */
+  height: auto;
+  background: none; /* 背景色を消す */
+}
+
+.long-logo-img {
+  width: 100%;
+  height: auto;
+  object-fit: contain; /* ロゴが潰れない */
+}
+
+.main-nav ul {
+  list-style: none;
+  display: flex;
+  gap: 18px;
+  margin: 0;
+  padding: 0;
+  font-size: 13px;
+}
+
+.main-nav a {
+  color: #fff;
+  text-decoration: none;
+  padding-bottom: 3px;
+  position: relative;
+}
+
+.main-nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background: #ffd54f;
+  transition: width 0.2s ease;
+}
+
+.main-nav a:hover::after {
+  width: 100%;
+}
+
+/* ==========================
+   HERO（Swiper）
+========================== */
+.hero {
+  position: relative;
+  width: 100vw;       /* 画面幅いっぱい */
+  margin-left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Swiper コンテナとスライドを画面いっぱいに */
+.hero-swiper,
+.hero-swiper .swiper-wrapper,
+.hero-swiper .swiper-slide {
+  width: 100vw;
+  height: 100vh;      /* フルスクリーン高さ。90vh にしてもOK */
+}
+
+/* スライド画像のフィット設定 */
+.hero-swiper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;      /* 縦横比を保ったまま埋める */
+  object-position: center;/* 画像中央を基準に表示（必要なら40% 30%などに調整） */
+}
+
+/* 画像の上にかぶせるグラデーション＋テキスト */
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  color: #fff;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.45),
+    rgba(0, 0, 0, 0.7)
+  );
+  z-index: 10;              /* ← これを追加 */
+  pointer-events: none;     /* ← いったん全部クリック無効にして… */
+}
+
+.hero-overlay .btn-primary {
+  pointer-events: auto;     /* ← ボタンだけクリックできるように戻す */
+}
+
+.hero-swiper {
+  position: relative;
+  z-index: 1;      /* ← 画像より上には文字が来るように */
+}
+
+.hero-inner {
+  padding: 60px 0;
+}
+
+.hero-text {
+  max-width: 620px;
+}
+
+.hero-label {
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  margin-bottom: 10px;
+}
+
+.hero h1 {
+  font-size: clamp(28px, 4vw, 38px);
+  margin: 0 0 12px;
+}
+
+.hero-desc {
+  margin: 0 0 18px;
+}
+
+.btn-primary {
+  display: inline-block;
+  padding: 10px 24px;
+  border-radius: 999px;
+  background: #ffd54f;
+  color: #4a2c0a;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+  font-size: 14px;
+}
+
+/* Swiper のページネーション位置 */
+.hero-swiper .swiper-pagination {
+  bottom: 20px !important;
+}
+
+/* ==========================
+   共通セクション
+========================== */
+.section-inner {
+  padding: 50px 0;
+}
+
+.section-title {
+  font-size: 22px;
+  border-left: 4px solid #7a0019;
+  padding-left: 10px;
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+/* 背景画像セクション */
+.section-bg {
+  background-size: cover;
+  background-position: center;
+}
+
+.about-bg     { background-image: url("photo2.jpg"); }
+.activities-bg{ background-image: url("photo3.jpg"); }
+.schedule-bg  { background-image: url("photo4.jpg"); }
+.access-bg    { background-image: url("photo5.jpg"); }
+
+.overlay {
+  padding: 50px 0;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.55);
+}
+
+.overlay-light {
+  padding: 50px 0;
+  color: #222;
+  background: rgba(255, 255, 255, 0.85);
+}
+
+/* ==========================
+   カード・リスト
+========================== */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 16px;
+}
+
+.card-translucent {
+  background: rgba(0, 0, 0, 0.55);
+  padding: 16px;
+  border-radius: 8px;
+  backdrop-filter: blur(2px);
+}
+
+.card-translucent h3 {
+  margin-top: 0;
+  margin-bottom: 8px;
+}
+
+.simple-list {
+  padding-left: 20px;
+  margin-top: 0;
+}
+
+.simple-list li {
+  margin-bottom: 4px;
+}
+
+.note {
+  margin-top: 10px;
+  font-size: 13px;
+}
+
+/* ==========================
+   CONTACT
+========================== */
+.section-plain {
+  background: #fff;
+}
+
+.contact-box {
+  background: #faf5ea;
+  border-left: 4px solid #7a0019;
+  padding: 16px;
+  border-radius: 6px;
+}
+
+/* ==========================
+   FOOTER
+========================== */
+.site-footer {
+  background: #333;
+  color: #ccc;
+  font-size: 12px;
+}
+
+.footer-inner {
+  padding: 12px 0;
+  text-align: center;
+}
+
+/* ==========================
+   スマホ用調整
+========================== */
+@media (max-width: 768px) {
+  .header-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+    width: min(100%, 100% - 12px);
+  }
+
+  .main-nav ul {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .hero-swiper,
+  .hero-swiper .swiper-wrapper,
+  .hero-swiper .swiper-slide {
+    height: 80vh;   /* スマホでは少し低めにしてもOK */
+  }
+
+  .section-inner,
+  .overlay,
+  .overlay-light {
+    padding: 36px 0;
+  }
+}
+/* ==========================
+   スクロールでヘッダー背景変化
+========================== */
+.site-header {
+  background: rgba(122, 0, 25, 0);  /* 最初は透明 */
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 0 0 rgba(0,0,0,0);
+}
+
+.site-header.scrolled {
+  background: rgba(122, 0, 25, 0.96);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.25);
+}

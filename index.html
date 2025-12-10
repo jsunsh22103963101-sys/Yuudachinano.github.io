@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>早稲田大学 航空部</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- 自作CSS -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Swiper CSS（CDN） -->
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+</head>
+<body>
+  <!-- ===== HEADER ===== -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="#top" class="logo-link">
+        <div class="logo-img-wrap long-logo">
+         <img src="logo_waseda_aviation2.png" alt="早稲田大学航空部ロゴ" class="long-logo-img">
+        </div>
+        <div class="logo-text">
+          <span class="logo-main">早稲田大学 航空部</span>
+          <span class="logo-sub">Waseda University Aviation Club</span>
+        </div>
+      </a>
+
+      <nav class="main-nav">
+        <ul>
+          <li><a href="#about">航空部について</a></li>
+          <li><a href="#activities">活動内容</a></li>
+          <li><a href="#schedule">年間スケジュール</a></li>
+          <li><a href="#access">活動場所</a></li>
+          <li><a href="#contact">お問い合わせ</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- ===== HERO：Swiper スライダー ===== -->
+    <section class="hero">
+      <!-- Swiper コンテナ -->
+      <div class="swiper hero-swiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <img src="photo1.jpg" alt="訓練中の部員とグライダー">
+          </div>
+          <div class="swiper-slide">
+            <img src="photo2.jpg" alt="丘の上の集合写真">
+          </div>
+          <div class="swiper-slide">
+            <img src="photo3.jpg" alt="滑空場での訓練風景">
+          </div>
+          <div class="swiper-slide">
+            <img src="photo4.jpg" alt="飛行中のグライダー JA2408">
+          </div>
+          <div class="swiper-slide">
+            <img src="photo5.jpg" alt="部旗とグライダーの集合写真">
+          </div>
+        </div>
+
+        <!-- ページネーション（下の小さい◯） -->
+        <div class="swiper-pagination"></div>
+      </div>
+
+      <!-- 画像の上にかぶせるテキスト -->
+      <div class="hero-overlay">
+        <div class="container hero-inner">
+          <div class="hero-text">
+            <p class="hero-label">Waseda University Aviation Club</p>
+            <h1>空へ、一緒に行こう。</h1>
+            <p class="hero-desc">
+              グライダー競技を通じて、技術・仲間・挑戦のすべてが手に入る場所。<br>
+              早稲田大学航空部は「安全第一」を大切に、日々訓練に励んでいます。
+            </p>
+            <a href="#contact" class="btn-primary">新歓・体験搭乗はこちら</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== ABOUT（背景：photo2） ===== -->
+    <section id="about" class="section-bg about-bg">
+      <div class="overlay overlay-light">
+        <div class="container section-inner">
+          <h2 class="section-title">航空部について</h2>
+          <p>
+            早稲田大学航空部は1930年創部の伝統ある体育各部の一つです。エンジンのないグライダーを用い、
+            週末には埼玉県の滑空場で訓練を行っています。ソロフライトや競技会出場を目標に、
+            学生主体で運営・訓練・整備まで行っているのが特徴です。
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== ACTIVITIES（背景：photo3） ===== -->
+    <section id="activities" class="section-bg activities-bg">
+      <div class="overlay">
+        <div class="container section-inner">
+          <h2 class="section-title">主な活動内容</h2>
+          <div class="card-grid">
+            <div class="card card-translucent">
+              <h3>フライト訓練</h3>
+              <p>
+                教官方の指導のもと、グライダーの基礎操縦からソロフライトまで段階的に訓練します。
+              </p>
+            </div>
+            <div class="card card-translucent">
+              <h3>大会・競技会</h3>
+              <p>
+                新人戦・六大学戦・学生選手権など、多くの大会に出場し、日々の成果を発揮します。
+              </p>
+            </div>
+            <div class="card card-translucent">
+              <h3>整備・地上業務</h3>
+              <p>
+                機体整備やウインチ運用、フライトデッキ業務など、安全運航を支える仕事も学生が担っています。
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SCHEDULE（背景：photo4） ===== -->
+    <section id="schedule" class="section-bg schedule-bg">
+      <div class="overlay overlay-light">
+        <div class="container section-inner">
+          <h2 class="section-title">年間スケジュール</h2>
+          <ul class="simple-list">
+            <li><strong>4〜5月：</strong> 新歓・体験搭乗会</li>
+            <li><strong>夏：</strong> 夏合宿・六大学戦など</li>
+            <li><strong>秋：</strong> 新人戦・秋合宿</li>
+            <li><strong>冬：</strong> 冬季訓練・座学・安全講習会</li>
+          </ul>
+          <p class="note">
+            ※ 年度によって日程は変更となる場合があります。最新情報は説明会・SNS等でご確認ください。
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== ACCESS（背景：photo5） ===== -->
+    <section id="access" class="section-bg access-bg">
+      <div class="overlay">
+        <div class="container section-inner">
+          <h2 class="section-title">活動場所</h2>
+          <p>
+            フライト訓練は主に埼玉県熊谷市の滑空場で行っています。<br>
+            平日のミーティングや座学は、早稲田キャンパス周辺の部室・教室などで実施しています。
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== CONTACT（白背景） ===== -->
+    <section id="contact" class="section-plain">
+      <div class="container section-inner">
+        <h2 class="section-title">お問い合わせ</h2>
+        <p>
+          航空部に興味のある方、見学・体験搭乗を希望される方は、下記の連絡先からお気軽にお問い合わせください。
+        </p>
+        <div class="contact-box">
+          <p>
+            メール：aviation@example.waseda.jp<br>
+            X（旧Twitter）：@waseda_aviation<br>
+            Instagram：@waseda_aviation_club
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© 早稲田大学 航空部</p>
+    </div>
+  </footer>
+
+  <!-- Swiper JS（CDN） -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+  <!-- Swiper 初期化 -->
+  <script>
+    const heroSwiper = new Swiper('.hero-swiper', {
+      effect: 'fade',
+      loop: true,
+      autoplay: {
+        delay: 5000,
+        disableOnInteraction: false
+      },
+      speed: 800,
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true
+      }
+      // 必要なら左右ボタンも追加可：
+      // navigation: {
+      //   nextEl: '.swiper-button-next',
+      //   prevEl: '.swiper-button-prev'
+      // }
+    });
+  </script>
+    <!-- スクロールしたらヘッダーを出現させる -->
+  <script>
+    const header = document.querySelector('.site-header');
+    const triggerHeight = 80; // どこで出現するか（調整可）
+
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > triggerHeight) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    });
+  </script>
+</body>
+</html>
