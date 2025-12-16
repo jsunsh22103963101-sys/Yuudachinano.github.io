@@ -28,11 +28,20 @@ a {
    ヘッダー・ナビ
 ========================== */
 .site-header {
-  background: rgba(122, 0, 25, 0.96);
+  background: rgba(122, 0, 25, 0);  /* 最初は透明 */
   color: #fff;
-  position: sticky;
+  position: fixed;                  /* ← sticky ではなく fixed にする */
   top: 0;
+  left: 0;
+  width: 100%;
   z-index: 1000;
+  box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* スクロールしたときに色と影を付ける */
+.site-header.scrolled {
+  background: rgba(122, 0, 25, 0.96);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
 }
 
@@ -47,7 +56,7 @@ a {
 .logo-link {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 16px;
   text-decoration: none;
 }
 
@@ -55,7 +64,7 @@ a {
   width: 56px;
   height: 56px;
   border-radius: 6px;
-  background: #7a0019;
+  background: #923733;
   overflow: hidden;
   display: flex;
   align-items: center;
@@ -66,20 +75,29 @@ a {
   width: 120%;
   height: auto;
   object-fit: cover;
+  display: block;
+  background: transparent;
 }
 
 .logo-text {
-  font-size: 13px;
+  font-size: 14px;
+  display: flex;              /* ← 追加 */
+  flex-direction: column;     /* ← 縦並びにする */
+  line-height: 1.2;           /* 行間を少し詰める（任意） */
+  margin-top: 10px;        /* ロゴ画像との位置調整（任意） */
+  font-family: "Yu Mincho", "游明朝", "Hiragino Mincho ProN",
+               "Hiragino Mincho Pro", "MS PMincho", serif;
 }
 
 .logo-main {
   font-weight: 700;
-  font-size: 15px;
+  font-size: 25px;
 }
 
 .logo-sub {
   font-size: 11px;
   opacity: 0.85;
+  margin:auto ;
 }
 
 /* 横長ロゴ対応 */
@@ -101,7 +119,7 @@ a {
   gap: 18px;
   margin: 0;
   padding: 0;
-  font-size: 13px;
+  font-size: 15px;
 }
 
 .main-nav a {
@@ -131,7 +149,7 @@ a {
 ========================== */
 .hero {
   position: relative;
-  width: 100vw;       /* 画面幅いっぱい */
+  width: 100vw;
   margin-left: 50%;
   transform: translateX(-50%);
 }
@@ -316,6 +334,56 @@ a {
 .footer-inner {
   padding: 12px 0;
   text-align: center;
+}
+
+/* ==========================
+   LOADING SCREEN
+========================== */
+#loading-screen {
+  position: fixed;
+  inset: 0;
+  background: #7a0019; /* 航空部カラー */
+  color: #fff;
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.6s ease, visibility 0.6s ease;
+}
+
+.loading-inner {
+  text-align: center;
+}
+
+.loading-text {
+  margin: auto;
+  font-size: 16px;
+  letter-spacing: 0.12em;
+}
+
+.loading-spinner {
+  width: 40px;
+  height: 40px;
+  border-radius: 999px;
+  border: 3px solid rgba(255, 255, 255, 0.45);
+  border-top-color: #fff;
+  animation: spin 0.9s linear infinite;
+  margin: auto;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ページ読み込み完了後に非表示へ */
+body.loaded #loading-screen {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
 }
 
 /* ==========================

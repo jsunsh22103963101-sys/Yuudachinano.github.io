@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <title>早稲田大学 航空部</title>
+  <title>早稲田大学航空部</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <!-- 自作CSS -->
@@ -13,15 +13,22 @@
         href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
 </head>
 <body>
+   <!-- ===== LOADING SCREEN ===== -->
+<div id="loading-screen">
+  <div class="loading-inner">
+    <p class="loading-text">Loading...</p>
+    <div class="loading-spinner"></div>
+  </div>
+</div>
   <!-- ===== HEADER ===== -->
   <header class="site-header">
     <div class="container header-inner">
       <a href="#top" class="logo-link">
         <div class="logo-img-wrap long-logo">
-         <img src="logo_waseda_aviation2.png" alt="早稲田大学航空部ロゴ" class="long-logo-img">
+         <img src="WUAC.png" alt="早稲田大学航空部ロゴ" class="long-logo-img">
         </div>
         <div class="logo-text">
-          <span class="logo-main">早稲田大学 航空部</span>
+          <span class="logo-main"> 早 稲 田 大 学 航 空 部</span>
           <span class="logo-sub">Waseda University Aviation Club</span>
         </div>
       </a>
@@ -180,6 +187,12 @@
     </div>
   </footer>
 
+ <script>
+  window.addEventListener('load', () => {
+    document.body.classList.add('loaded');
+  });
+</script>
+
   <!-- Swiper JS（CDN） -->
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
@@ -196,12 +209,12 @@
       pagination: {
         el: '.swiper-pagination',
         clickable: true
+      },
+
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev'
       }
-      // 必要なら左右ボタンも追加可：
-      // navigation: {
-      //   nextEl: '.swiper-button-next',
-      //   prevEl: '.swiper-button-prev'
-      // }
     });
   </script>
     <!-- スクロールしたらヘッダーを出現させる -->
